@@ -21,7 +21,6 @@ import (
 const dbName = "Instadb"
 const collectionUsers = "users"
 const collectionPosts = "posts"
-const port = 800
 
 func GetMongoDbConnection() (*mongo.Client, error) {
 
@@ -203,7 +202,6 @@ func getUserPost(w http.ResponseWriter, r *http.Request, ps httprouter.Params) {
 	t := ps.ByName("uid")
 	if t != "" {
 		id := t
-		//objID, _ := primitive.ObjectIDFromHex(id)
 		filter = bson.M{"user_id": id}
 	}
 
